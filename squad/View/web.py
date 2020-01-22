@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect
 import sys
-sys.path.append('C:/Users/900137/Desktop/pythonatividades/pythonatividades/Aula37')
+sys.path.append(r'C:\Users\900137\Desktop\TrabalhoSquad\squad')
 from Controller.squad_controller import SquadController
 from Model.squad import Squad
 
+app = Flask (__name__)
+controller = SquadController() 
 
-controller = SquadController()
-
-nome = 'TESTANDO :/'
+nome = 'SQUAD'
 
 @app.route('/')
 def inicio():

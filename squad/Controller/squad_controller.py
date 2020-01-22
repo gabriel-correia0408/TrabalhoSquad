@@ -2,7 +2,7 @@
 from Dao.squad_dao import SquadDao
 from Model.squad import Squad
 
-class SquadDao:
+class SquadController: # subscrevendo para a classe 'SquadController'
     dao = SquadDao()
 
     def ler(self):

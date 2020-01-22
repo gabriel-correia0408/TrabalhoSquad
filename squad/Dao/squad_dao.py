@@ -1,19 +1,18 @@
 import MySQLdb
 from Model.squad import Squad 
 
+
 class SquadDao:
     conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
     cursor = conexao.cursor()
-
-
     
-    def ler(self, id):
-        comando = f"SELECT * FROM Squad_gabrielcorreia ID = {id}"
+    def ler(self):
+        comando = f"SELECT * FROM Squad_gabrielcorreia "
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
-    def salvar(self, squad:Squad_gabrielcorreia):
+    def salvar(self, squad: Squad):
         comando = f""" INSERT INTO Squad_gabrielcorreia
         (
             Nome,
