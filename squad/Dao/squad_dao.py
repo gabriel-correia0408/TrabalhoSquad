@@ -9,7 +9,7 @@ class SquadDao:
     def ler(self):
         comando = f"SELECT * FROM Squad_gabrielcorreia "
         self.cursor.execute(comando)
-        resultado = self.cursor.fetchone()
+        resultado = self.cursor.fetchall()
         return resultado
 
     def salvar(self, squad: Squad):

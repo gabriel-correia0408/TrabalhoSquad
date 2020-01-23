@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect
 import sys
-sys.path.append(r'C:\Users\900137\Desktop\TrabalhoSquad\squad')
+sys.path.append('/Users/900137/Desktop/TrabalhoSquad/squad')
 from Controller.squad_controller import SquadController
 from Model.squad import Squad
 
 app = Flask (__name__)
-controller = SquadController() 
-
+squad_controller = SquadController() 
+squad = Squad()
 nome = 'SQUAD'
 
 @app.route('/')
@@ -15,15 +15,20 @@ def inicio():
 
 @app.route('/listar')
 def ler():
-    squads = squad_controller.listar_todos()
-    return render_template('ler.html', titulo_app = nome, lista = squads)
+    squads = squad_controller.ler()
+    return render_template('listar.html', titulo_app = nome, squad = squads)
 
 @app.route('/inserir')
 def inserir():
     squad = Squad()
+    squad_control = SquadController()
+    squad.LinguagemBackEnd = 'klkdlkd'
+    squad.Nome = 'THOR'
+    squad.NumeroPessoas = 10
+    squad_control.inserir(squad)
     if 'id' in request.args:
         id = request.args['id']
-        squad = squad_controller.buscar_por_id(id)
+        squad = squad_controller.inserir(id)
     return render_template('inserir.html', titulo_app = nome, squad = squad )
 
 

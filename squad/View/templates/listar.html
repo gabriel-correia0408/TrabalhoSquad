@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listar</title>
+</head>
+<body>
+    <h1 style="background-color: black; color: blanchedalmond; text-align: center;">Teste Listar</h1>
+ 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Num pessoas</th>
+            <th>L_backend</th>
+            <th>Fram_frontend</th>
+        </tr>
+
+
+        <tbody>
+            {% for s in squad %}
+            <tr>
+                <td>{{ s[0] }}</td>
+                <td>{{ s[1] }}</td>
+                <td>{{ s[2] }}</td>
+                <td>{{ s[3] }}</td>
+                <td>{{ s[4] }}</td>
+                <td>{{ s[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <h1 style=" background-color:blue; color:chartreuse">Rodaaa</h1>
+</body>
+</html>
