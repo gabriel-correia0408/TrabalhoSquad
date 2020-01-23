@@ -1,0 +1,65 @@
+body{
+    width: 80%;
+    margin:80px auto;
+    color:#ff0000;
+    background:rgb(26, 21, 21);
+}
+
+
+/* Formularios */
+form{
+    width: 60%;
+    margin: 2em auto ;
+    padding: 3em 4em 2em;
+    border: 1px solid #777777a2;
+}
+.editar{
+    color:#fff;
+    padding: 0.2em;
+    color:#f00;
+    background:#fff;
+    border: 1px solid #f00;
+}
+
+.salvar{
+    background:  #185201;
+    color: #fff;
+    padding: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 10em;
+}
+.salvar:hover
+{
+    color:#185201;
+    background: #fff;
+    border: 1px solid #185201;
+}
+.limpar{
+    padding: 0.6em 1em;
+    background: #f8d700;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 12em;
+}
+.limpar:hover
+{
+    color:#f8d700;
+    background: #fff;
+    border: 1px solid #f8d700;
+}
+input[type='text']{
+    padding: 5em 2em;
+    width: 60%;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+.descricao{
+    width: 20%;
+    text-align: right;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+input[type='text'] , .descricao{
+    display: inline-block;
