@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cadastrar</title>
 </head>
+
 <body>
+
+    <form action="/salvar">
+
+        <div>
+
+            <table>
+                <tr>
+                <td>Nome:</td>
+                <td>  
+                <input type="text" name="Nome" size="20" />
+                </td>
+                </tr>
+
+                <tr>
+                <td>Descrição:</td>
+                        <td>  
+                        <input type="text" name="Descricao" size="20" />
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td>Numero de pessoa:</td>
+                                <td>  
+                                <input type="text" name="NumeroPessoas" size="20" />
+                                </td>
+                                </tr>
+
+                                <tr>
+                                    <td>LinguagemBackEnd:</td>
+                                    <td>  
+                                    <input type="text" name="LinguagemBackEnd" size="20" />
+                                    </td>
+            
+                                        </tr>
+                        <td>FromeworkFrontEnd:</td>
+                                
+                        <td><input type="text" name="FrameworkFrontEnd" size="20" /></td>
+                                
+                        </tr> 
+            </table>
+            
+            <input type="submit" value="Enviar">
+            <a href="/cadastrar"><td> Limpar</td></a>
+            
+        </div>
+
+    </form>
+    
 
     
 </body>
