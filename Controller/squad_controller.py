@@ -18,4 +18,7 @@ class SquadController: # subscrevendo para a classe 'SquadController'
         self.dao.deletar(id)
 
     def buscar_por_id(self, id):
-        self.dao.buscar_por_id(id)
+        return self.dao.buscar_por_id(id)
+
+    def editar(self,id, Nome,Descricao,NumeroPessoas,LinguagemBackEnd,FrameworkFrontEnd):
+        self.dao.editar(self, id,Nome,Descricao,NumeroPessoas,LinguagemBackEnd,FrameworkFrontEnd)

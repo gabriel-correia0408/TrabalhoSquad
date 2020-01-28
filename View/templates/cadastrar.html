@@ -9,42 +9,42 @@
 
 <body>
 
-    <form action="/salvar">
+    <form action="/inserir" method="GET">
 
         <div>
-
+            <input type="hidden" name="id" id="id" value="{{squad.id}}" />
             <table>
                 <tr>
                 <td>Nome:</td>
                 <td>  
-                <input type="text" name="Nome" size="20" />
+                <input placeholder="Insira o nome do squad:" type="text" name="Nome"  size="20" value="{{squad.Nome}}" />
                 </td>
                 </tr>
 
                 <tr>
                 <td>Descrição:</td>
                         <td>  
-                        <input type="text" name="Descricao" size="20" />
+                        <input placeholder="Descrição:" type="text" name="Descricao" size="20" value="{{squad.Descricao}}"/>
                         </td>
                         </tr>
 
                         <tr>
                             <td>Numero de pessoa:</td>
                                 <td>  
-                                <input type="text" name="NumeroPessoas" size="20" />
+                                <input placeholder="Numero de pessoas:" type="text" name="NumeroPessoas"  size="20" value="{{squad.NumeroPessoas}}"/>
                                 </td>
                                 </tr>
 
                                 <tr>
                                     <td>LinguagemBackEnd:</td>
                                     <td>  
-                                    <input type="text" name="LinguagemBackEnd" size="20" />
+                                    <input placeholder="LinguagemBackEnd:" type="text" name="LinguagemBackEnd"  size="20" value="{{squad.LinguagemBackEnd}}"/>
                                     </td>
             
                                         </tr>
                         <td>FromeworkFrontEnd:</td>
                                 
-                        <td><input type="text" name="FrameworkFrontEnd" size="20" /></td>
+                        <td><input placeholder="FrameworkFrontEnd:" type="text" name="FrameworkFrontEnd"  size="20"  value="{{squad.FrameworkFrontEnd}}" /></td>
                                 
                         </tr> 
             </table>

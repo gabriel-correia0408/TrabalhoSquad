@@ -20,17 +20,22 @@ def ler():
 
 @app.route('/cadastrar')
 def inserir():
-    # squad = Squad()
+    squad = Squad()
     # squad_control = SquadController()
     # squad.Nome = ''
     # squad.descricao = 'testando'
     # squad.NumeroPessoas = 20
     # squad.LinguagemBackEnd = 'testando'
-    # squad.FrameworkFrontEnd= 'angular'
+    # squad.FrameworkFrontEnd= 'angular
     # squad_control.inserir(squad)
-    # if 'id' in request.args:
-    #     id = request.args['id']
-    #     squad = squad_controller.inserir(id)
+    if 'id' in request.args:
+        id = int(request.args['id'])
+        Nome = request.args['Nome']
+        Descricao = request.args['Descricao']
+        NumeroPessoas = request.args['NumeroPessoas']
+        LinguagemBackEnd = request.args['LinguagemBackEnd']
+        FrameworkFrontEnd= request.args['FrameworkFrontEnd']
+        squad_controller.editar(id, Nome, NumeroPessoas, LinguagemBackEnd, FrameworkFrontEnd)
     return render_template('cadastrar.html', titulo_app = nome, squad = squad )
 
 
@@ -40,21 +45,32 @@ def deletar():
     squad_controller.deletar(id)    
     return redirect('/listar')
 
-@app.route('/salvar')
+@app.route('/inserir')
 def salvar():
     squad = Squad()
-    # squad.id = request.args['id']
+    squad.id = request.args['id']
     squad.Nome = request.args['Nome']
     squad.Descricao = request.args['Descricao']
     squad.NumeroPessoas = request.args['NumeroPessoas']
     squad.LinguagemBackEnd = request.args['LinguagemBackEnd']
     squad.FrameworkFrontEnd = request.args['FrameworkFrontEnd']
     
-    squad_controller.inserir(squad)
-    
+    # squad_controller.inserir(squad)
+    if squad.id == 0:
+        squad_controller.inserir(squad)
+    else:
+        squad_controller.editar(squad)
     return redirect ('/listar')
+        
 
+
+    
+
+# @app.route('/editar')
 # def editar():
+#     return redirect ('/editar')
+
 
 
 app.run(debug=True)
+#app.run()

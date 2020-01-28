@@ -1,7 +1,7 @@
 import MySQLdb
 from Model.squad import Squad 
 
-
+squad = Squad()
 class SquadDao:
     conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
     cursor = conexao.cursor()
@@ -12,7 +12,7 @@ class SquadDao:
         resultado = self.cursor.fetchall()
         return resultado
 
-    def salvar(self, squad: Squad):
+    def inserir(self, squad: Squad):
         comando = f""" INSERT INTO Squad_gabrielcorreia
         (
             Nome,
@@ -34,30 +34,38 @@ class SquadDao:
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def inserir(self, Squad:Squad):
-        comando = f""" UPDATE Squad_gabrielcorreia
-        SET
-            NOME = '{squad.Nome}',
-            SOBRENOME ='{squad.Descricao}',
-            IDADE = {squad.NumeroSquads},
-            ENDERECO_ID = {squad.endereco.id}
-        WHERE ID = {squad.id}
-        """
-        self.cursor.execute(comando)
-        self.conexao.commit()
+
 
     def deletar(self, id):
-        comando = f"DELETE FROM Squad_gabrielcorreia WHERE ID = {id}"
+        comando = f"DELETE FROM Squad_gabrielcorreia WHERE id = {id}"
         self.cursor.execute(comando)
         self.conexao.commit()
         
     def buscar_por_id(self, id):
-        p = self.dao.buscar_por_id(id)
+        comando = f"SELECT * FROM Squad_gabrielcorreia WHERE id = {id}"
+        self.cursor.execute(comando)
+        p = self.cursor.fetchone()
         squad = Squad()
         squad.id =  p[0]
         squad.Nome = p[1]
         squad.Descricao = p[2]
         squad.NumeroPessoas = p[3]
-        squad.LinguagemBackEnd = p[5]
-        squad.FrameworkFrontEnd = p[6]
+        squad.LinguagemBackEnd = p[4]
+        squad.FrameworkFrontEnd = p[5]
         return squad
+
+
+# PDATE `topskills01`.`Squad_gabrielcorreia` SET `Nome` = 'odinzelolo' WHERE (`id` = '80');
+    def editar(self, id,Nome,Descricao,NumeroPessoas,LinguagemBackEnd,FrameworkFrontEnd):
+        comando = f''' 
+        UPDATE Squad_gabrielcorreia SET
+        Nome = '{Nome}'
+        Descricao = '{Descricao}'
+        NumeroPessoas = '{NumeroPessoas}'
+        LinguagemBackEnd = '{LinguagemBackEnd}
+        FrameworkFrontEnd = '{FrameworkFrontEnd}'
+        WHERE  id = {id}
+        
+        '''
+        self.cursor.execute(comando)
+        self.conexao.commit()

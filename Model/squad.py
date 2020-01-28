@@ -1,5 +1,6 @@
 class Squad:
     def __init__(self):
+        self.Id = 0
         self.Nome = ''
         self.Descricao = ''
         self.NumeroPessoas = 0
